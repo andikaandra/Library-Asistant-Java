@@ -1,0 +1,27 @@
+kata benda
+- meminjam
+- melayani
+- mengecek
+- menambahkan
+- mencatat
+- memasukkan
+- mengambil
+- meminjamkan
+- pelayanan
+- mengisi
+- menyimpan data anggota
+- peminjam
+- ahmad (pustakawan)
+- ID peminjam
+- notifikasi
+- form
+- ID buku
+- perpustakaan
+- buku
+- pengunjung
+- transaksi peminjaman
+- denda
+- klik tombol okay
+- klik tombol close
+- add new member window
+- add new book window
