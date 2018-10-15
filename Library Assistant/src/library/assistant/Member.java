@@ -10,7 +10,7 @@ package library.assistant;
  * @author Bosmo
  */
 public class Member {
-    public int idmember;
+    private int idmember;
     private String nama;
     private String nohp;
     private String email;

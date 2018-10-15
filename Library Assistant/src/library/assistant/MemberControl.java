@@ -9,6 +9,8 @@ package library.assistant;
  *
  * @author Bosmo
  */
-public class AnggotaControl {
-    
+public class MemberControl {
+    public void editMember(Member member){};
+    public void deleteMember (Member member){};
+    public void addMember (Member member){};
 }

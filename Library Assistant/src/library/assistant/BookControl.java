@@ -9,6 +9,9 @@ package library.assistant;
  *
  * @author Bosmo
  */
-public class BukuControl {
-    
+public class BookControl {
+    public void editBook(Book book){};
+    public void deleteBook(Book book){};
+    public void addBook(Book book){};
+    public void checkBook(int idBook){};
 }
