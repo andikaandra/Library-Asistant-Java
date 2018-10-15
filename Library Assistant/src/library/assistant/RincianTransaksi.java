@@ -5,17 +5,12 @@
  */
 package library.assistant;
 
-import java.sql.Timestamp;
-
-
 /**
  *
  * @author Bosmo
  */
 public class RincianTransaksi {
-    public int IDRincian;
-    public Buku buku;
-    public TransaksiPeminjaman transaksi;
-    private Timestamp waktuPinjam;
-    private Timestamp waktuKembali;    
+    public int idrincian;
+    public Book buku;
+    public TransaksiPeminjaman transaksi;   
 }

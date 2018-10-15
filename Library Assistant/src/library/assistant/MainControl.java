@@ -10,5 +10,12 @@ package library.assistant;
  * @author Bosmo
  */
 public class MainControl {
-    
+    public void openWindow(){};
+    public void closeWindow(){};
+    public void openDialogueBox(){};
+    public void closeDialogueBox(){};
+    public void memberController(){};
+    public void bookController(){};
+    public void transactionControl(){};
+    public void aturanControl(){};
 }

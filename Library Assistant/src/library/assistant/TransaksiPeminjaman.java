@@ -10,7 +10,7 @@ package library.assistant;
  * @author Bosmo
  */
 public class TransaksiPeminjaman {
-    public int IDTransaksi;
-    public Anggota anggota;
+    private int idTransaction;
+    private Member member;
     private int denda;
 }
