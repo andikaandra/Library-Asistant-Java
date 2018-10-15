@@ -14,4 +14,8 @@ public class Member {
     private String nama;
     private String nohp;
     private String email;
+    
+    public Member(){
+        
+    }
 }

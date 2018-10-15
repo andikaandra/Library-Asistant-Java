@@ -14,4 +14,8 @@ public class Aturan {
     public int dendaPerHari;
     public String username;
     public String password;
+    
+    public Aturan(){
+        
+    }
 }

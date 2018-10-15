@@ -12,5 +12,9 @@ package library.assistant;
 public class RincianTransaksi {
     public int idrincian;
     public Book buku;
-    public TransaksiPeminjaman transaksi;   
+    public TransaksiPeminjaman transaksi;
+    
+    public RincianTransaksi(){
+        
+    }
 }

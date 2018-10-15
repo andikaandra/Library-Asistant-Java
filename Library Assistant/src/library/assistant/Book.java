@@ -14,4 +14,8 @@ public class Book {
     private String judul;
     private String pemilik;
     private String penerbit;
+    
+    public Book(){
+        
+    }
 }

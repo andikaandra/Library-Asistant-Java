@@ -13,4 +13,8 @@ public class TransaksiPeminjaman {
     private int idTransaction;
     private Member member;
     private int denda;
+    
+    public TransaksiPeminjaman(){
+        
+    }
 }
