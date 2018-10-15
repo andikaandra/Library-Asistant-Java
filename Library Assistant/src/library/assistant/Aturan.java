@@ -10,8 +10,8 @@ package library.assistant;
  * @author Bosmo
  */
 public class Aturan {
+    public int batasPeminjaman;
     public int dendaPerHari;
-    public int durasiPeminjaman;
-    public void setDendaPerHari(){};
-    public void setDurasiPeminjaman(){};
+    public String username;
+    public String password;
 }

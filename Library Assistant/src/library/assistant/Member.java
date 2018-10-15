@@ -9,9 +9,9 @@ package library.assistant;
  *
  * @author Bosmo
  */
-public class Anggota {
-    public int ID;
+public class Member {
+    public int idmember;
     private String nama;
-    private String nomorTelepon;
+    private String nohp;
     private String email;
 }

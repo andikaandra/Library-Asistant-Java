@@ -9,12 +9,9 @@ package library.assistant;
  *
  * @author Bosmo
  */
-public class Buku {
-    public int ID;
+public class Book {
+    private int idbook;
     private String judul;
     private String pemilik;
     private String penerbit;
-    private int status;
-    private int jumlah;
-    private int sisaBuku;
 }
