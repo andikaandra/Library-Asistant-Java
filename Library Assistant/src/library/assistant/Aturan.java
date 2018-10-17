@@ -10,10 +10,10 @@ package library.assistant;
  * @author Bosmo
  */
 public class Aturan {
-    public int batasPeminjaman;
-    public int dendaPerHari;
-    public String username;
-    public String password;
+    private int batasPeminjaman;
+    private int dendaPerHari;
+    private String username;
+    private String password;
     
     public Aturan(){
         

@@ -12,7 +12,7 @@ package library.assistant;
 public class Book {
     private int idbook;
     private String judul;
-    private String pemilik;
+    private String penulis;
     private String penerbit;
     
     public Book(){

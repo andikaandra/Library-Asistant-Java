@@ -10,9 +10,9 @@ package library.assistant;
  * @author Bosmo
  */
 public class RincianTransaksi {
-    public int idrincian;
-    public Book buku;
-    public TransaksiPeminjaman transaksi;
+    private int idrincian;
+    private Book buku;
+    private int idtransaksi;
     
     public RincianTransaksi(){
         

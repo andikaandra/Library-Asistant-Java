@@ -14,4 +14,5 @@ public class BookControl {
     public void deleteBook(Book book){};
     public void addBook(Book book){};
     public void checkBook(int idBook){};
+    public void bookList(){};
 }
