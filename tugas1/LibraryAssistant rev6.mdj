@@ -4929,7 +4929,7 @@
 											"top": 1020,
 											"width": 93.58349609375,
 											"height": 13,
-											"text": "+judul: string",
+											"text": "-judul: string",
 											"horizontalAlignment": 0
 										},
 										{
@@ -4946,7 +4946,7 @@
 											"top": 1035,
 											"width": 93.58349609375,
 											"height": 13,
-											"text": "+penulis: string",
+											"text": "-penulis: string",
 											"horizontalAlignment": 0
 										},
 										{
@@ -4963,7 +4963,7 @@
 											"top": 1050,
 											"width": 93.58349609375,
 											"height": 13,
-											"text": "+penerbit: string",
+											"text": "-penerbit: string",
 											"horizontalAlignment": 0
 										}
 									],
@@ -5394,7 +5394,7 @@
 											"top": 619,
 											"width": 157.1806640625,
 											"height": 13,
-											"text": "+bataspeminjaman: integer",
+											"text": "-bataspeminjaman: integer",
 											"horizontalAlignment": 0
 										},
 										{
@@ -5411,7 +5411,7 @@
 											"top": 634,
 											"width": 157.1806640625,
 											"height": 13,
-											"text": "+dendaperhari: integer",
+											"text": "-dendaperhari: integer",
 											"horizontalAlignment": 0
 										},
 										{
@@ -5428,7 +5428,7 @@
 											"top": 649,
 											"width": 157.1806640625,
 											"height": 13,
-											"text": "+username: string",
+											"text": "-username: string",
 											"horizontalAlignment": 0
 										},
 										{
@@ -5445,7 +5445,7 @@
 											"top": 664,
 											"width": 157.1806640625,
 											"height": 13,
-											"text": "+password: string",
+											"text": "-password: string",
 											"horizontalAlignment": 0
 										}
 									],
@@ -5637,7 +5637,7 @@
 											"top": 950,
 											"width": 136.56982421875,
 											"height": 13,
-											"text": "-idtransaction: integer",
+											"text": "-idtransaksi: integer",
 											"horizontalAlignment": 0
 										},
 										{
@@ -9348,7 +9348,7 @@
 							"_parent": {
 								"$ref": "AAAAAAFmZo/9mXr85qQ="
 							},
-							"name": "idtransaction",
+							"name": "idtransaksi",
 							"visibility": "private",
 							"type": "integer"
 						},
@@ -9530,7 +9530,7 @@
 							"_parent": {
 								"$ref": "AAAAAAFmaLYC8Pw+oaA="
 							},
-							"name": "idtransaction",
+							"name": "idtransaksi",
 							"visibility": "private",
 							"type": "integer"
 						}
@@ -53403,7 +53403,7 @@
 											"top": 675,
 											"width": 136.56982421875,
 											"height": 13,
-											"text": "-idtransaction: integer",
+											"text": "-idtransaksi: integer",
 											"horizontalAlignment": 0
 										},
 										{
@@ -53936,7 +53936,7 @@
 											"top": 1009,
 											"width": 194.95556640625,
 											"height": 13,
-											"text": "-idtransaction: integer",
+											"text": "-idtransaksi: integer",
 											"horizontalAlignment": 0
 										}
 									],
