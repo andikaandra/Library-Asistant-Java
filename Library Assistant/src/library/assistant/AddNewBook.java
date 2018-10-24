@@ -148,10 +148,6 @@ public class AddNewBook extends javax.swing.JFrame {
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
         // TODO add your handling code here:
-        System.out.println("Hehehe");
-//        BookList BookLists = new BookList();
-//        BookLists.setVisible(true);
-//        this.setVisible(false);
     }//GEN-LAST:event_jButton1MouseClicked
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
