@@ -10,10 +10,40 @@ package library.assistant;
  * @author ASUS
  */
 public class TransaksiSukses implements TransactionState {
-    public void persyaratanTidakLengkap(){
+
+    @Override
+    public void transaksiBaru() {
 
     }
-    public void persyaratanLengkap(){
-        
-    } 
+
+    @Override
+    public void persyaratanTidakLengkap() {
+
+    }
+
+    @Override
+    public void persyaratanLengkap() {
+
+    }
+
+    @Override
+    public void transaksiDiperpanjang() {
+
+    }
+
+    @Override
+    public void bukuDikembalikan() {
+
+    }
+
+    @Override
+    public void transaksiBerakhir() {
+
+    }
+
+    @Override
+    public void transaksiTidakBerhasil() {
+
+    }
+
 }

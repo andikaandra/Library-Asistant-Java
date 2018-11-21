@@ -15,16 +15,18 @@ public class TransaksiPeminjaman {
     private int denda;
     private TransactionState statetransaction;
     public TransaksiPeminjaman(){
-        statetransaction = new TransaksiBelumDiverifikasi(this);
+        statetransaction = new TransaksiBelumDiVerifikasi(this);
     }
     
-    public setState(TransactionState ts){
+    public void setState(TransactionState ls){
         statetransaction = ls;
     }
     
-    public void transactionBaru(){}
-    public void persyaratanTidakLengkap(){}
-    public void persyaratanLengkap(){}
-    public void transaksiDiperpanjang(){}
-    public void bukuDikembalikan(){}
+    public void transaksiBaru(){};
+    public void persyaratanTidakLengkap(){};
+    public void persyaratanLengkap(){};
+    public void transaksiDiperpanjang(){};
+    public void bukuDikembalikan(){};
+    public void transaksiBerakhir(){};
+    public void transaksiTidakBerhasil(){};
 }

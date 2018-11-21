@@ -9,7 +9,7 @@ package library.assistant;
  *
  * @author ASUS
  */
-public class TransaksiBatal implements TransactionState {
+public class TransaksiDiperpanjang implements TransactionState{
 
     @Override
     public void transaksiBaru() {
@@ -45,5 +45,5 @@ public class TransaksiBatal implements TransactionState {
     public void transaksiTidakBerhasil() {
 
     }
-
+    
 }

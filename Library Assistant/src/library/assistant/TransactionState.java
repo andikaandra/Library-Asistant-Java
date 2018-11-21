@@ -10,9 +10,14 @@ package library.assistant;
  * @author ASUS
  */
 public interface TransactionState {
-    public void transactionBaru();
+    public static void main(String[] a){    
+        System.out.println("I am a static main method inside Inteface !!");
+    }
+    public void transaksiBaru();
     public void persyaratanTidakLengkap();
     public void persyaratanLengkap();
     public void transaksiDiperpanjang();
     public void bukuDikembalikan();
+    public void transaksiBerakhir();
+    public void transaksiTidakBerhasil();
 }

@@ -14,14 +14,41 @@ public class TransaksiBelumDiVerifikasi implements TransactionState{
         context=tp;
     }
     
-    
-    
+    @Override
     public void persyaratanTidakLengkap(){
-        context.setState(new TransaksiBatal(context));
+//        context.setState(new TransaksiBatal(context));
     }
+
+    @Override    
     public void persyaratanLengkap(){
         
     }
     
+
+    @Override
+    public void transaksiBaru() {
+
+    }
+
+    @Override
+    public void transaksiDiperpanjang() {
+
+    }
+
+    @Override
+    public void bukuDikembalikan() {
+
+    }
+
+    @Override
+    public void transaksiBerakhir() {
+
+    }
+
+    @Override
+    public void transaksiTidakBerhasil() {
+
+
+    }
     private TransaksiPeminjaman context = null;
 }
