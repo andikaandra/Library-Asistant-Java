@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package library.assistant;
 
 /**
@@ -12,7 +7,9 @@ package library.assistant;
 public class BookControl {
     public void editBook(Book book){};
     public void deleteBook(Book book){};
-    public void addBook(Book book){};
+    public static void AddBook(int buku, String judul, String penulis, String penerbit){
+        Book.addBook(buku, judul, penulis, penerbit);
+    };
     public void checkBook(int idBook){};
     public void bookList(){};
 }

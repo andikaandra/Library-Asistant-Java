@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package library.assistant;
 import java.sql.*;
 
@@ -24,22 +19,22 @@ public class Book {
         
     }
 
-    public static void main(String[] args){
-        Connection conn = null;
-        Statement stmt = null;
+    public static void addBook(int buku, String judul, String penulis, String penerbit){
+        Connection conn;
+        Statement stmt;
         
         try {
             conn = DriverManager.getConnection(CONN_STRING, USERNAME, PASSWORD);
             stmt = conn.createStatement();
 //            System.out.println("Connected");
-            String judul1 = "WAKAKA";
-            String penulis1 = "buya hamka";
-            String penerbit1 = "andika andra";
-            String insert = "INSERT INTO book VALUES(NULL,'"+judul1+"', '"+penulis1+"', '"+penerbit1+"');";
+            String insert = "INSERT INTO book VALUES('"+buku+"','"+judul+"', '"+penulis+"', '"+penerbit+"');";
             stmt.executeUpdate(insert);
         } catch(SQLException e){
             System.err.println(e);
-        }
-//        System.out.println("Hello World");
+        }        
+    }    
+    
+    public static void main(String[] args){
+        System.out.println("Success");
     }
 }
