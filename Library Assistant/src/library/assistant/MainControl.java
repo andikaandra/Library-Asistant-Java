@@ -26,13 +26,18 @@ public class MainControl {
     };
 
     public void openDialogueBox(){};
+    
     public void closeDialogueBox(){};
+    
     public static void memberController(int member, String nama, String hp, String email){
         MemberControl.AddMember(member, nama, hp, email);
     };
+    
     public static void bookController(int buku, String judul, String penulis, String penerbit){
         BookControl.AddBook(buku, judul, penulis, penerbit);
     };
+    
     public void transactionControl(){};
+    
     public void aturanControl(){};
 }

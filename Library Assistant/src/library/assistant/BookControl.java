@@ -1,15 +1,39 @@
 package library.assistant;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
+
 /**
  *
  * @author Bosmo
  */
 public class BookControl {
+    private static final String USERNAME="root";
+    private static final String PASSWORD="";
+    private static final String CONN_STRING="jdbc:mysql://localhost:3306/libraryasistant"; 
+
     public void editBook(Book book){};
+    
     public void deleteBook(Book book){};
+    
     public static void AddBook(int buku, String judul, String penulis, String penerbit){
-        Book.addBook(buku, judul, penulis, penerbit);
+        Connection conn;
+        Statement stmt;
+        
+        try {
+            conn = DriverManager.getConnection(CONN_STRING, USERNAME, PASSWORD);
+            stmt = conn.createStatement();
+            System.out.println("Connecteds");
+            String insert = "INSERT INTO book VALUES('"+buku+"','"+judul+"', '"+penulis+"', '"+penerbit+"');";
+            stmt.executeUpdate(insert);
+        } catch(SQLException e){
+            System.err.println(e);
+        }    
     };
+    
     public void checkBook(int idBook){};
+    
     public void bookList(){};
 }
