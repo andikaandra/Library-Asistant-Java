@@ -1,13 +1,16 @@
 package library.assistant;
 
-/**
- *
- * @author Bosmo
- */
-public class MemberList extends javax.swing.JFrame {
+import java.sql.*;
+import javax.swing.table.DefaultTableModel;
 
+public class MemberList extends javax.swing.JFrame {
+    private static final String USERNAME="root";
+    private static final String PASSWORD="";
+    private static final String CONN_STRING="jdbc:mysql://localhost:3306/libraryasistant"; 
+    
     public MemberList() {
         initComponents();
+        displayMemberList();
     }
 
     @SuppressWarnings("unchecked")
@@ -15,24 +18,14 @@ public class MemberList extends javax.swing.JFrame {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        membersList = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Data member");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        membersList.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+
             },
             new String [] {
                 "No", "Nama", "ID Member", "No HP", "Email"
@@ -53,26 +46,24 @@ public class MemberList extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jTable1.setRowHeight(20);
-        jScrollPane1.setViewportView(jTable1);
-        if (jTable1.getColumnModel().getColumnCount() > 0) {
-            jTable1.getColumnModel().getColumn(0).setResizable(false);
-            jTable1.getColumnModel().getColumn(0).setPreferredWidth(15);
-            jTable1.getColumnModel().getColumn(1).setResizable(false);
-            jTable1.getColumnModel().getColumn(1).setPreferredWidth(100);
-            jTable1.getColumnModel().getColumn(2).setResizable(false);
-            jTable1.getColumnModel().getColumn(2).setPreferredWidth(20);
-            jTable1.getColumnModel().getColumn(3).setResizable(false);
-            jTable1.getColumnModel().getColumn(4).setResizable(false);
+        membersList.setRowHeight(20);
+        jScrollPane1.setViewportView(membersList);
+        if (membersList.getColumnModel().getColumnCount() > 0) {
+            membersList.getColumnModel().getColumn(0).setResizable(false);
+            membersList.getColumnModel().getColumn(0).setPreferredWidth(15);
+            membersList.getColumnModel().getColumn(1).setResizable(false);
+            membersList.getColumnModel().getColumn(1).setPreferredWidth(100);
+            membersList.getColumnModel().getColumn(2).setResizable(false);
+            membersList.getColumnModel().getColumn(2).setPreferredWidth(20);
+            membersList.getColumnModel().getColumn(3).setResizable(false);
+            membersList.getColumnModel().getColumn(4).setResizable(false);
         }
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 782, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -82,19 +73,38 @@ public class MemberList extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new MemberList().setVisible(true);
+    public void displayMemberList(){        
+        Connection conn;
+        Statement stmt;
+        try {
+            conn = DriverManager.getConnection(CONN_STRING, USERNAME, PASSWORD);
+            stmt = conn.createStatement();
+            ResultSet query = stmt.executeQuery("SELECT * FROM member");
+            
+            DefaultTableModel model = (DefaultTableModel) membersList.getModel();
+            int iter=1;
+            while(query.next()){
+                int idmember = Integer.parseInt(query.getString("idmember"));
+                String nama = query.getString("nama");
+                String hp = query.getString("nohp");
+                String email = query.getString("email");
+                
+                model.addRow(new Object[]{iter++, nama, idmember, hp, email});
             }
+        } catch(SQLException e){
+            System.err.println(e);
+        }   
+    }
+    
+    
+    public static void main(String args[]) {
+        java.awt.EventQueue.invokeLater(() -> {
+            new MemberList().setVisible(true);
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable membersList;
     // End of variables declaration//GEN-END:variables
 }

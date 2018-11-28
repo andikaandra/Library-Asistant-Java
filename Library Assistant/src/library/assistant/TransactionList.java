@@ -1,9 +1,5 @@
 package library.assistant;
 
-/**
- *
- * @author Bosmo
- */
 public class TransactionList extends javax.swing.JFrame {
 
     public TransactionList() {

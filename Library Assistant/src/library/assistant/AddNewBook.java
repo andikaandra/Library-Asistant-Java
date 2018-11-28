@@ -1,9 +1,5 @@
 package library.assistant;
 
-/**
- *
- * @author Bosmo
- */
 public class AddNewBook extends javax.swing.JFrame {
 
     public AddNewBook() {
@@ -29,12 +25,6 @@ public class AddNewBook extends javax.swing.JFrame {
         setTitle("Tambahkan Buku Baru");
         setBackground(new java.awt.Color(42, 46, 55));
 
-        judulForm.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                judulFormActionPerformed(evt);
-            }
-        });
-
         jLabel2.setText("Penulis");
 
         jLabel3.setText("Penerbit");
@@ -42,31 +32,20 @@ public class AddNewBook extends javax.swing.JFrame {
         jButton1.setText("Save");
         jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton1MouseClicked(evt);
-            }
-        });
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                onSaved(evt);
             }
         });
 
         jButton2.setText("Cancel");
         jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton2MouseClicked(evt);
+                onClosed(evt);
             }
         });
 
         jLabel5.setText("Judul Buku");
 
         jLabel1.setText("ID Buku");
-
-        bukuForm.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bukuFormActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -125,63 +104,26 @@ public class AddNewBook extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void judulFormActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_judulFormActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_judulFormActionPerformed
-
-    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+    
+    private void onSaved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_onSaved
         int buku = Integer.parseInt(bukuForm.getText());
         String judul = judulForm.getText();
         String penulis = penulisForm.getText();
         String penerbit = penerbitForm.getText();
-        MainControl.bookController(buku, judul, penulis, penerbit);
-    }//GEN-LAST:event_jButton1MouseClicked
 
-    private void bukuFormActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bukuFormActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_bukuFormActionPerformed
+        Book dataBuku = new Book();
+        dataBuku.setVariable(buku, judul, penulis, penerbit);
+        
+        MainControl.bookController(dataBuku, 1);
+    }//GEN-LAST:event_onSaved
 
-    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
-        MainControl.closeWindowB(this);
-//        this.setVisible(false);
-    }//GEN-LAST:event_jButton2MouseClicked
+    private void onClosed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_onClosed
+        MainControl.closeWindowBook(this);
+    }//GEN-LAST:event_onClosed
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-//        try {
-//            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-//                if ("Nimbus".equals(info.getName())) {
-//                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-//                    break;
-//                }
-//            }
-//        } catch (ClassNotFoundException ex) {
-//            java.util.logging.Logger.getLogger(MemberRegist.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (InstantiationException ex) {
-//            java.util.logging.Logger.getLogger(MemberRegist.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (IllegalAccessException ex) {
-//            java.util.logging.Logger.getLogger(MemberRegist.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-//            java.util.logging.Logger.getLogger(MemberRegist.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new AddNewBook().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new AddNewBook().setVisible(true);
         });
     }
 

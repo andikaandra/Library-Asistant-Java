@@ -1,9 +1,5 @@
 package library.assistant;
-import java.util.*;
-/**
- *
- * @author ASUS
- */
+
 public class AddNewMember extends javax.swing.JFrame {
 
     public AddNewMember() {
@@ -31,43 +27,20 @@ public class AddNewMember extends javax.swing.JFrame {
         jButton2.setText("Cancel");
         jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton2MouseClicked(evt);
+                onClosed(evt);
             }
         });
 
         jButton1.setText("Save");
         jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton1MouseClicked(evt);
-            }
-        });
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-
-        hpForm.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                hpFormActionPerformed(evt);
+                onSaved(evt);
             }
         });
 
         jLabel4.setText("No HP.");
 
-        memberForm.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                memberFormActionPerformed(evt);
-            }
-        });
-
         jLabel3.setText("Member ID");
-
-        namaForm.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                namaFormActionPerformed(evt);
-            }
-        });
 
         jLabel2.setText("Nama Lengkap");
 
@@ -126,37 +99,23 @@ public class AddNewMember extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void onClosed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_onClosed
+        MainControl.closeWindowMember(this);
+    }//GEN-LAST:event_onClosed
 
-    private void hpFormActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hpFormActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_hpFormActionPerformed
-
-    private void memberFormActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_memberFormActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_memberFormActionPerformed
-
-    private void namaFormActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_namaFormActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_namaFormActionPerformed
-
-    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
-        MainControl.closeWindowM(this);
-    }//GEN-LAST:event_jButton2MouseClicked
-
-    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+    private void onSaved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_onSaved
         int member = Integer.parseInt(memberForm.getText());
         String nama = namaForm.getText();
         String hp = hpForm.getText();
         String email = emailForm.getText();
 
-        MainControl.memberController(member, nama, hp, email); 
-    }//GEN-LAST:event_jButton1MouseClicked
+        Member dataMember = new Member();
+        dataMember.setVariable(member, nama, hp, email);
+        
+        MainControl.memberController(dataMember, 1);
+    }//GEN-LAST:event_onSaved
 
     public static void main(String args[]) {
-
         java.awt.EventQueue.invokeLater(() -> {
             new AddNewMember().setVisible(true);
         });

@@ -1,13 +1,10 @@
 package library.assistant;
 
-/**
- *
- * @author ASUS
- */
 public class Sidebar extends javax.swing.JPanel {
 
     public Sidebar() {
         initComponents();
+        this.setVisible(false);        
     }
     
     public static void displaySidebar(Sidebar sidebar) {
@@ -35,35 +32,35 @@ public class Sidebar extends javax.swing.JPanel {
         jButton1.setText("Add Member");
         jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton1MouseClicked(evt);
+                addMemberOnClicked(evt);
             }
         });
 
         jButton2.setText("Add Book");
         jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton2MouseClicked(evt);
+                addBookOnClicked(evt);
             }
         });
 
         jButton3.setText("Member List");
         jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton3MouseClicked(evt);
+                memberListOnClicked(evt);
             }
         });
 
         jButton4.setText("Book List");
         jButton4.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton4MouseClicked(evt);
+                bookListOnClicked(evt);
             }
         });
 
         jButton5.setText("Setting");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+        jButton5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                settingOnClicked(evt);
             }
         });
 
@@ -92,27 +89,25 @@ public class Sidebar extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-
-    }//GEN-LAST:event_jButton5ActionPerformed
-
-    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+    private void addMemberOnClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addMemberOnClicked
         MainControl.openWindow("Member");
-    }//GEN-LAST:event_jButton1MouseClicked
+    }//GEN-LAST:event_addMemberOnClicked
 
-    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
+    private void addBookOnClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addBookOnClicked
         MainControl.openWindow("Book");
-    }//GEN-LAST:event_jButton2MouseClicked
+    }//GEN-LAST:event_addBookOnClicked
 
-    private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
-        MemberList MemberLists = new MemberList();
-        MemberLists.setVisible(true);
-    }//GEN-LAST:event_jButton3MouseClicked
+    private void memberListOnClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_memberListOnClicked
+        MainControl.memberController(null, 4);
+    }//GEN-LAST:event_memberListOnClicked
 
-    private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
-        BookList BookLists = new BookList();
-        BookLists.setVisible(true);
-    }//GEN-LAST:event_jButton4MouseClicked
+    private void bookListOnClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bookListOnClicked
+        MainControl.bookController(null, 5);
+    }//GEN-LAST:event_bookListOnClicked
+
+    private void settingOnClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_settingOnClicked
+
+    }//GEN-LAST:event_settingOnClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

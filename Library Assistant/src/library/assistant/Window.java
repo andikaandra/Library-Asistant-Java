@@ -15,6 +15,16 @@ public class Window {
         WindowAddBook.setVisible(true);
     };
 
+    public static void openBookListWindow(){
+        BookList listBook = new BookList();
+        listBook.setVisible(true);
+    }
+
+    public static void openMemberListWindow(){
+        MemberList listMember = new MemberList();
+        listMember.setVisible(true);
+    }
+    
     public static void closeMemberWindow(AddNewMember WindowAddMember){
         WindowAddMember.dispose();
     };

@@ -1,8 +1,5 @@
 package library.assistant;
-/**
- *
- * @author Bosmo
- */
+
 public class MainControl {
     public static void openWindow(String type){
         if(type.equals("Member")){
@@ -15,29 +12,75 @@ public class MainControl {
         }
     };
     
-    public static void closeWindowM(AddNewMember WindowAddMember){
+    public static void openWindowBookList(){
+        Window.openBookListWindow();
+    }
+
+    public static void openWindowMemberList(){
+        Window.openMemberListWindow();
+    }
+    
+    public static void closeWindowMember(AddNewMember WindowAddMember){
         Window.closeMemberWindow(WindowAddMember);
         System.out.println("Close New Member");
     };
     
-    public static void closeWindowB(AddNewBook WindowAddBook){
+    public static void closeWindowBook(AddNewBook WindowAddBook){
         Window.closeBookWindow(WindowAddBook);
         System.out.println("Close New Book");
     };
 
-    public void openDialogueBox(){};
+    public void openDialogueBox(){
     
-    public void closeDialogueBox(){};
-    
-    public static void memberController(int member, String nama, String hp, String email){
-        MemberControl.AddMember(member, nama, hp, email);
     };
     
-    public static void bookController(int buku, String judul, String penulis, String penerbit){
-        BookControl.AddBook(buku, judul, penulis, penerbit);
+    public void closeDialogueBox(){
+    
     };
     
-    public void transactionControl(){};
+    public static void memberController(Member dataMember, int type){
+        switch (type) {
+            case 1:
+                MemberControl.AddMember(dataMember);
+                break;
+            case 2:
+                break;
+            case 3:
+                break;
+            case 4:
+                MemberControl.memberList();
+                break;
+            default:
+                System.out.println("Error, No match type");
+                break;
+        }        
+    };
     
-    public void aturanControl(){};
+    public static void bookController(Book dataBuku, int type){
+        switch (type) {
+            case 1:
+                BookControl.AddBook(dataBuku);
+                break;
+            case 2:
+                break;
+            case 3:
+                break;
+            case 4:
+                break;
+            case 5:
+                BookControl.bookList();
+                break;
+            default:
+                System.out.println("Error, No match type");
+                break;
+        }
+    };
+    
+    public void transactionControl(){
+        
+    };
+    
+    public void aturanControl(){
+    
+    };
 }
