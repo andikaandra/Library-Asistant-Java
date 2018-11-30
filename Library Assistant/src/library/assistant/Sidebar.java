@@ -90,11 +90,11 @@ public class Sidebar extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void addMemberOnClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addMemberOnClicked
-        MainControl.openWindow("Member");
+        MainControl.openMemberWindow();
     }//GEN-LAST:event_addMemberOnClicked
 
     private void addBookOnClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addBookOnClicked
-        MainControl.openWindow("Book");
+        MainControl.openBookWindow();
     }//GEN-LAST:event_addBookOnClicked
 
     private void memberListOnClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_memberListOnClicked

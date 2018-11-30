@@ -47,6 +47,11 @@ public class MemberList extends javax.swing.JFrame {
             }
         });
         membersList.setRowHeight(20);
+        membersList.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                membersListMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(membersList);
         if (membersList.getColumnModel().getColumnCount() > 0) {
             membersList.getColumnModel().getColumn(0).setResizable(false);
@@ -72,6 +77,15 @@ public class MemberList extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void membersListMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_membersListMouseClicked
+        int index = membersList.getSelectedRow();
+        DefaultTableModel model = (DefaultTableModel) membersList.getModel();
+        
+        int idmember = Integer.parseInt(model.getValueAt(index, 2).toString());
+
+        MainControl.openMenuWindow("member", idmember);
+    }//GEN-LAST:event_membersListMouseClicked
 
     public void displayMemberList(){        
         Connection conn;

@@ -1,16 +1,31 @@
 package library.assistant;
 
 public class MainControl {
-    public static void openWindow(String type){
-        if(type.equals("Member")){
-            Window.openMemberWindow();
-            System.out.println("Open New Member");
-        }
-        else if(type.equals("Book")){
-            Window.openBookWindow();
-            System.out.println("Open New Book");
-        }
-    };
+
+    public static void openMemberWindow(){
+        Window.openMemberWindow();
+        System.out.println("Open New Member");
+    }
+
+    public static void openBookWindow(){
+        Window.openBookWindow();
+        System.out.println("Open New Book");
+    }    
+
+    public static void openEditMemberWindow(Member member){
+        Window.openEditMemberWindow(member);
+        System.out.println("Open EditMember");
+    }                
+
+    public static void openEditBookWindow(Book book){
+        Window.openEditBookWindow(book);
+        System.out.println("Open EditBook");
+    }            
+
+    public static void openMenuWindow(String type, int id){
+        Window.openMenuWindow(type, id);
+        System.out.println("Open Menu");
+    }        
     
     public static void openWindowBookList(){
         Window.openBookListWindow();
@@ -19,6 +34,8 @@ public class MainControl {
     public static void openWindowMemberList(){
         Window.openMemberListWindow();
     }
+    
+    
     
     public static void closeWindowMember(AddNewMember WindowAddMember){
         Window.closeMemberWindow(WindowAddMember);
@@ -29,6 +46,17 @@ public class MainControl {
         Window.closeBookWindow(WindowAddBook);
         System.out.println("Close New Book");
     };
+
+    public static void closeWindowEditBook(EditBook editBook){
+        Window.closeEditBookWindow(editBook);
+        System.out.println("Close Edit Book");
+    };
+    
+    public static void closeWindowEditMember(EditMember editMember){
+        Window.closeEditMemberWindow(editMember);
+        System.out.println("Close Edit Member");
+    };
+    
 
     public void openDialogueBox(){
     
@@ -44,11 +72,12 @@ public class MainControl {
                 MemberControl.AddMember(dataMember);
                 break;
             case 2:
+                MemberControl.EditMember(dataMember);
                 break;
             case 3:
                 break;
             case 4:
-                MemberControl.memberList();
+                MemberControl.MemberList();
                 break;
             default:
                 System.out.println("Error, No match type");
@@ -62,13 +91,14 @@ public class MainControl {
                 BookControl.AddBook(dataBuku);
                 break;
             case 2:
+                BookControl.EditBook(dataBuku);
                 break;
             case 3:
                 break;
             case 4:
                 break;
             case 5:
-                BookControl.bookList();
+                BookControl.BookList();
                 break;
             default:
                 System.out.println("Error, No match type");

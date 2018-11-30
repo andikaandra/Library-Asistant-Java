@@ -1,13 +1,14 @@
 package library.assistant;
 
 import java.sql.*;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 public class BookList extends javax.swing.JFrame {
     private static final String USERNAME="root";
     private static final String PASSWORD="";
     private static final String CONN_STRING="jdbc:mysql://localhost:3306/libraryasistant"; 
-    
+
     public BookList() {
         initComponents();
         displayBookList();
@@ -48,6 +49,11 @@ public class BookList extends javax.swing.JFrame {
         });
         booksList.setGridColor(new java.awt.Color(0, 0, 0));
         booksList.setRowHeight(20);
+        booksList.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                booksListMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(booksList);
         if (booksList.getColumnModel().getColumnCount() > 0) {
             booksList.getColumnModel().getColumn(0).setResizable(false);
@@ -76,6 +82,16 @@ public class BookList extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void booksListMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_booksListMouseClicked
+        int index = booksList.getSelectedRow();
+        DefaultTableModel model = (DefaultTableModel) booksList.getModel();
+        
+        int idbook = Integer.parseInt(model.getValueAt(index, 2).toString());
+
+        MainControl.openMenuWindow("book", idbook);
+
+    }//GEN-LAST:event_booksListMouseClicked
+
     public void displayBookList(){
         
         Connection conn;
@@ -92,14 +108,15 @@ public class BookList extends javax.swing.JFrame {
                 String judul = query.getString("judul");
                 String penulis = query.getString("penulis");
                 String penerbit = query.getString("penerbit");
-
-                model.addRow(new Object[]{iter++, judul, idbook, penerbit, penulis, "ada"});
+                String ketersediaan = query.getString("ketersediaan");
+                
+                model.addRow(new Object[]{iter++, judul, idbook, penulis, penerbit, ketersediaan});
             }
         } catch(SQLException e){
             System.err.println(e);
         }   
     }
-    
+
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(() -> {
             new BookList().setVisible(true);

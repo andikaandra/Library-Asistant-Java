@@ -24,6 +24,20 @@ public class Window {
         MemberList listMember = new MemberList();
         listMember.setVisible(true);
     }
+
+    public static void openEditBookWindow(Book book){
+        EditBook editBook = new EditBook();
+        editBook.setVariable(book);
+        editBook.setVisible(true);
+    }
+
+    public static void openEditMemberWindow(Member member){
+        EditMember editMember = new EditMember();
+        editMember.setVariable(member);
+        editMember.setVisible(true);
+    }
+    
+    
     
     public static void closeMemberWindow(AddNewMember WindowAddMember){
         WindowAddMember.dispose();
@@ -32,4 +46,19 @@ public class Window {
     public static void closeBookWindow(AddNewBook WindowAddBook){
         WindowAddBook.dispose();
     };
+
+    public static void closeEditBookWindow(EditBook editBook){
+        editBook.dispose();
+    };
+
+    public static void closeEditMemberWindow(EditMember editMember){
+        editMember.dispose();
+    };    
+    
+    public static void openMenuWindow(String type, int id) {
+        Menu windowMenu = new Menu();
+        windowMenu.setVariable(type, id);
+        windowMenu.setVisible(true);
+    }
+
 }
