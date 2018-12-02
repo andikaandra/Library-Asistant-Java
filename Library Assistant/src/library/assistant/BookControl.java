@@ -18,12 +18,26 @@ public class BookControl {
             stmt = conn.createStatement();
             String update = "UPDATE book set judul='"+dataBuku.getJudul()+"', penulis='"+dataBuku.getPenulis()+"',penerbit='"+dataBuku.getPenerbit()+"', ketersediaan='"+dataBuku.getKetersediaan()+"' where idbook='"+dataBuku.getIdBook()+"' ";
             stmt.executeUpdate(update);
+            MainControl.openDialogueBox("Data buku berhasil diubah", 2, dataBuku.getIdBook(), "buku");
         } catch(SQLException e){
             System.err.println(e);
         }    
     };
     
-    public static void DeleteBook(Book book){};
+    public static void DeleteBook(Book dataBuku){
+        Connection conn;
+        Statement stmt;
+        
+        try {
+            conn = DriverManager.getConnection(CONN_STRING, USERNAME, PASSWORD);
+            stmt = conn.createStatement();
+            String update = "DELETE from book where idbook='"+dataBuku.getIdBook()+"' ";
+            stmt.executeUpdate(update);
+            MainControl.openDialogueBox("Data buku berhasil dihapus", 10, dataBuku.getIdBook(), "buku");
+        } catch(SQLException e){
+            System.err.println(e);
+        }    
+    };
     
     public static void AddBook(Book dataBuku){
         Connection conn;
@@ -34,6 +48,7 @@ public class BookControl {
             stmt = conn.createStatement();
             String insert = "INSERT INTO book VALUES('"+dataBuku.getIdBook()+"','"+dataBuku.getJudul()+"', '"+dataBuku.getPenulis()+"', '"+dataBuku.getPenerbit()+"', '"+dataBuku.getKetersediaan()+"');";
             stmt.executeUpdate(insert);
+            MainControl.openDialogueBox("Data buku berhasil ditambahkan", 10, dataBuku.getIdBook(), "buku");
         } catch(SQLException e){
             System.err.println(e);
         }    

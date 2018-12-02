@@ -1,7 +1,6 @@
 package library.assistant;
 
 import java.sql.*;
-import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 public class BookList extends javax.swing.JFrame {

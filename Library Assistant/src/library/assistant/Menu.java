@@ -77,7 +77,12 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_editClicked
 
     private void deleteClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deleteClicked
-
+        if("book".equals(this.type)){
+            MainControl.openDialogueBox("Apakah data buku akan dihapus atau tidak?",3, this.id, this.type);
+        }
+        else if("member".equals(this.type)){
+            MainControl.openDialogueBox("Apakah data member akan dihapus atau tidak?",3, this.id, this.type);
+        }
     }//GEN-LAST:event_deleteClicked
 
     /**

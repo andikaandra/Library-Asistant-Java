@@ -58,12 +58,13 @@ public class MainControl {
     };
     
 
-    public void openDialogueBox(){
-    
+    public static void openDialogueBox(String pesan, int kode, int id, String type){
+        DialogueBox dialogueBox = new DialogueBox();
+        dialogueBox.displayDialogueBox(pesan, kode, id, type);
     };
     
-    public void closeDialogueBox(){
-    
+    public static void closeDialogueBox(DialogueBox dialogueBox){
+        DialogueBox.closeDialogueBox(dialogueBox);
     };
     
     public static void memberController(Member dataMember, int type){
@@ -75,6 +76,7 @@ public class MainControl {
                 MemberControl.EditMember(dataMember);
                 break;
             case 3:
+                MemberControl.DeleteMember(dataMember);
                 break;
             case 4:
                 MemberControl.MemberList();
@@ -94,6 +96,7 @@ public class MainControl {
                 BookControl.EditBook(dataBuku);
                 break;
             case 3:
+                BookControl.DeleteBook(dataBuku);
                 break;
             case 4:
                 break;
