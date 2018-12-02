@@ -25,6 +25,12 @@ public class Window {
         listMember.setVisible(true);
     }
 
+    public static void openAturanWindow(){
+        EditAturan editAturan = new EditAturan();
+        editAturan.setVariable(AturanControl.OpenAturan());
+        editAturan.setVisible(true);
+    }
+
     public static void openEditBookWindow(Book book){
         EditBook editBook = new EditBook();
         editBook.setVariable(book);
@@ -54,6 +60,11 @@ public class Window {
     public static void closeEditMemberWindow(EditMember editMember){
         editMember.dispose();
     };    
+
+    public static void closeEditAturanWindow(EditAturan editAturan){
+        editAturan.dispose();
+    };        
+    
     
     public static void openMenuWindow(String type, int id) {
         Menu windowMenu = new Menu();

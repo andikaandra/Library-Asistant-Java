@@ -34,14 +34,18 @@ public class MainControl {
     public static void openWindowMemberList(){
         Window.openMemberListWindow();
     }
-    
-    
-    
+
+    public static void openWindowAturan(){
+        Window.openAturanWindow();
+        System.out.println("Open aturan");
+    }
+
+
     public static void closeWindowMember(AddNewMember WindowAddMember){
         Window.closeMemberWindow(WindowAddMember);
         System.out.println("Close New Member");
     };
-    
+
     public static void closeWindowBook(AddNewBook WindowAddBook){
         Window.closeBookWindow(WindowAddBook);
         System.out.println("Close New Book");
@@ -56,7 +60,11 @@ public class MainControl {
         Window.closeEditMemberWindow(editMember);
         System.out.println("Close Edit Member");
     };
-    
+
+    public static void closeWindowAturan(EditAturan editAturan){
+        Window.closeEditAturanWindow(editAturan);
+        System.out.println("Close Edit Aturan");
+    };    
 
     public static void openDialogueBox(String pesan, int kode, int id, String type){
         DialogueBox dialogueBox = new DialogueBox();
@@ -113,7 +121,7 @@ public class MainControl {
         
     };
     
-    public void aturanControl(){
-    
+    public static void aturanController(Aturan aturan){
+        AturanControl.EditAturan(aturan);
     };
 }

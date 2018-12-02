@@ -106,7 +106,7 @@ public class Sidebar extends javax.swing.JPanel {
     }//GEN-LAST:event_bookListOnClicked
 
     private void settingOnClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_settingOnClicked
-
+        MainControl.openWindowAturan();
     }//GEN-LAST:event_settingOnClicked
 
 
