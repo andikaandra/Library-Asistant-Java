@@ -41,14 +41,30 @@ public class MemberControl {
     public static void AddMember (Member dataMember){
         Connection conn;
         Statement stmt;
-        
+        boolean usernameExists = false;
         try {
             conn = DriverManager.getConnection(CONN_STRING, USERNAME, PASSWORD);
             stmt = conn.createStatement();
 //            System.out.println("Connected");
-            String insert = "INSERT INTO member VALUES('"+dataMember.getIdMember()+"','"+dataMember.getNama()+"', '"+dataMember.getNoHp()+"', '"+dataMember.getEmail()+"');";
-            stmt.executeUpdate(insert);
-            MainControl.openDialogueBox("Data member berhasil ditambahkan", 10, dataMember.getIdMember(), "member");
+            int temp = dataMember.getIdMember();
+            ResultSet query = stmt.executeQuery("SELECT * FROM member");
+            while(query.next()){
+                int idmember = Integer.parseInt(query.getString("idmember"));
+                if(idmember==temp){
+                    System.out.println("Sama");
+                    usernameExists = true;
+                    break;
+                }
+            }
+            if(usernameExists){
+                MainControl.openDialogueBox("Error, Duplikasi primary key", 3, dataMember.getIdMember(), "error");                
+            }
+            else{
+                String insert = "INSERT INTO member VALUES('"+dataMember.getIdMember()+"','"+dataMember.getNama()+"', '"+dataMember.getNoHp()+"', '"+dataMember.getEmail()+"');";
+                stmt.executeUpdate(insert);
+                MainControl.openDialogueBox("Data member berhasil ditambahkan", 10, dataMember.getIdMember(), "member");
+            }
+
         } catch(SQLException e){
             System.err.println(e);
         }        

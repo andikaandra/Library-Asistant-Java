@@ -14,7 +14,7 @@ public class MainWindow extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         idbook = new javax.swing.JTextField();
         idmember = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        issueButton = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         sidebar = new library.assistant.Sidebar();
         jPanel2 = new javax.swing.JPanel();
@@ -31,7 +31,12 @@ public class MainWindow extends javax.swing.JFrame {
         idmember.setText("ID Member");
         idmember.setToolTipText("Masukkan ID Member");
 
-        jButton1.setText("Issue");
+        issueButton.setText("Issue");
+        issueButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                issueButtonMouseClicked(evt);
+            }
+        });
 
         jButton2.setText("Sidebar");
         jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -55,7 +60,7 @@ public class MainWindow extends javax.swing.JFrame {
                                     .addComponent(idmember, javax.swing.GroupLayout.DEFAULT_SIZE, 136, Short.MAX_VALUE)))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(275, 275, 275)
-                                .addComponent(jButton1)))
+                                .addComponent(issueButton)))
                         .addGap(0, 163, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
@@ -73,7 +78,7 @@ public class MainWindow extends javax.swing.JFrame {
                 .addGap(33, 33, 33)
                 .addComponent(idmember, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(44, 44, 44)
-                .addComponent(jButton1)
+                .addComponent(issueButton)
                 .addGap(21, 21, 21))
             .addComponent(sidebar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
@@ -133,6 +138,12 @@ public class MainWindow extends javax.swing.JFrame {
 
     }//GEN-LAST:event_ikonSidebar
 
+    private void issueButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_issueButtonMouseClicked
+        int buku = Integer.parseInt(idbook.getText());
+        int member = Integer.parseInt(idmember.getText());
+        MainControl.openDialogueBox("Apakah akan issue book? ", 2, buku, "issue");
+    }//GEN-LAST:event_issueButtonMouseClicked
+
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(() -> {
             new MainWindow().setVisible(true);
@@ -142,7 +153,7 @@ public class MainWindow extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField idbook;
     private javax.swing.JTextField idmember;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton issueButton;
     private javax.swing.JButton jButton2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;

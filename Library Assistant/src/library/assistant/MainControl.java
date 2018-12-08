@@ -74,6 +74,14 @@ public class MainControl {
     public static void closeDialogueBox(DialogueBox dialogueBox){
         DialogueBox.closeDialogueBox(dialogueBox);
     };
+
+    public static void closeErrorDialogueBox(DialogueBox dialogueBox){
+        DialogueBox.closeErrorDialogueBox(dialogueBox);
+    };
+
+    public static void closeError2DialogueBox(DialogueBox dialogueBox){
+        DialogueBox.closeDialogueBox(dialogueBox);
+    };
     
     public static void memberController(Member dataMember, int type){
         switch (type) {

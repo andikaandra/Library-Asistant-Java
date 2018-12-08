@@ -24,7 +24,7 @@ public class AddNewMember extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Tambahkan Member baru");
 
-        jButton2.setText("Cancel");
+        jButton2.setText("Close");
         jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 onClosed(evt);

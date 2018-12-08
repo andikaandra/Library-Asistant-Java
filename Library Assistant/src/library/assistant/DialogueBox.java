@@ -57,15 +57,25 @@ public class DialogueBox extends javax.swing.JFrame {
 
     private void okButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_okButtonMouseClicked
         if(this.kode==3){
-            if("book".equals(this.type)){
-                Book dataBuku = new Book();
-                dataBuku.setVariable(this.id, "null", "null", "null", "null");
-                MainControl.bookController(dataBuku, 3);
-            }
-            else if("member".equals(this.type)){
-                Member dataMember = new Member();
-                dataMember.setVariable(this.id, "null", "null", "null");
-                MainControl.memberController(dataMember, 3);
+            if(null != this.type)switch (this.type) {
+                case "book":
+                    Book dataBuku = new Book();
+                    dataBuku.setVariable(this.id, "null", "null", "null", "null");
+                    MainControl.bookController(dataBuku, 3);
+                    break;
+                case "member":
+                    Member dataMember = new Member();
+                    dataMember.setVariable(this.id, "null", "null", "null");
+                    MainControl.memberController(dataMember, 3);
+                    break;
+                case "error":
+                    MainControl.closeErrorDialogueBox(this);
+                    break;
+                case "error2":
+                    MainControl.closeError2DialogueBox(this);
+                    break;
+                default:
+                    break;
             }
         }
         else{
@@ -84,6 +94,11 @@ public class DialogueBox extends javax.swing.JFrame {
     
     public static void closeDialogueBox(DialogueBox dialogue){
         dialogue.dispose();
+    }
+
+    public static void closeErrorDialogueBox(DialogueBox dialogue){
+        dialogue.dispose();
+        MainControl.openDialogueBox("Data tidak bisa ditambahkan", 3, 10, "error2");
     }
     
     public static void main(String args[]) {
