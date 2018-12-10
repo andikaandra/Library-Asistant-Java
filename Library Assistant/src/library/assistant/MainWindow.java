@@ -141,7 +141,7 @@ public class MainWindow extends javax.swing.JFrame {
     private void issueButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_issueButtonMouseClicked
         int buku = Integer.parseInt(idbook.getText());
         int member = Integer.parseInt(idmember.getText());
-        MainControl.openDialogueBox("Apakah akan issue book? ", 2, buku, "issue");
+        MainControl.openDialogueBoxTransaction("Apakah akan issue book? ", member, buku, "issue");
     }//GEN-LAST:event_issueButtonMouseClicked
 
     public static void main(String args[]) {

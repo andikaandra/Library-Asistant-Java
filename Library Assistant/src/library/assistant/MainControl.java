@@ -70,11 +70,20 @@ public class MainControl {
         DialogueBox dialogueBox = new DialogueBox();
         dialogueBox.displayDialogueBox(pesan, kode, id, type);
     };
+
+    public static void openDialogueBoxTransaction(String pesan, int member, int book, String type){
+        DialogueBoxTransaction dialogueBox = new DialogueBoxTransaction();
+        dialogueBox.displayDialogueBoxTransaction(pesan, member, book, type);
+    };
     
     public static void closeDialogueBox(DialogueBox dialogueBox){
         DialogueBox.closeDialogueBox(dialogueBox);
     };
 
+    public static void closeDialogueBoxIssue(DialogueBoxTransaction dialogueBox){
+        DialogueBoxTransaction.closeDialogueBoxIssue(dialogueBox);
+    };    
+    
     public static void closeErrorDialogueBox(DialogueBox dialogueBox){
         DialogueBox.closeErrorDialogueBox(dialogueBox);
     };
@@ -125,8 +134,16 @@ public class MainControl {
         }
     };
     
-    public void transactionControl(){
-        
+    public static void transactionControl(int member, int book, int type){
+        switch (type) {
+            case 1:
+                TransaksiControl.addTransaction(member, book);
+                break;
+            case 2:
+                break;
+            default:
+                break;
+        }
     };
     
     public static void aturanController(Aturan aturan){
