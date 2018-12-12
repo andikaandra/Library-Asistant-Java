@@ -119,9 +119,7 @@ public class ViewBook extends javax.swing.JFrame {
 
     private void renewonSaved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_renewonSaved
         int buku = Integer.parseInt(bukuForm.getText());
-
-        Book dataBuku = this.book;
-        MainControl.transactionControl(1, dataBuku.getIdBook(), 2);
+        MainControl.openDialogueBox("Apakah buku akan diperpanjang?",3, buku, "dummy");
         MainControl.closeWindowViewBook(this);
     }//GEN-LAST:event_renewonSaved
 

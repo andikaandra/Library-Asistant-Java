@@ -79,6 +79,10 @@ public class DialogueBox extends javax.swing.JFrame {
                 case "error2":
                     MainControl.closeError2DialogueBox(this);
                     break;
+                case "dummy":
+                    MainControl.transactionControl(1, this.id, 2);
+                    MainControl.closeDialogueBox(this);
+                    break;
                 default:
                     MainControl.closeDialogueBox(this);
                     break;
