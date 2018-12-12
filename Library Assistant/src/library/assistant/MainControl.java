@@ -22,6 +22,11 @@ public class MainControl {
         System.out.println("Open EditBook");
     }            
 
+    public static void openViewBookWindow(Book book){
+        Window.openViewBookWindow(book);
+        System.out.println("Open ViewBook");
+    }                
+    
     public static void openMenuWindow(String type, int id){
         Window.openMenuWindow(type, id);
         System.out.println("Open Menu");
@@ -54,6 +59,11 @@ public class MainControl {
     public static void closeWindowEditBook(EditBook editBook){
         Window.closeEditBookWindow(editBook);
         System.out.println("Close Edit Book");
+    };
+
+    public static void closeWindowViewBook(ViewBook viewBook){
+        Window.closeViewBookWindow(viewBook);
+        System.out.println("Close View Book");
     };
     
     public static void closeWindowEditMember(EditMember editMember){
@@ -140,6 +150,10 @@ public class MainControl {
                 TransaksiControl.addTransaction(member, book);
                 break;
             case 2:
+                TransaksiControl.renewTransaction(book);
+                break;
+            case 3:
+                TransaksiControl.submissionTransaction(book);
                 break;
             default:
                 break;

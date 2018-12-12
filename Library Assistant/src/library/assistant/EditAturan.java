@@ -21,7 +21,8 @@ public class EditAturan extends javax.swing.JFrame {
         saveAturan = new javax.swing.JButton();
         closeAturan = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setBackground(new java.awt.Color(42, 46, 55));
 
         jLabel5.setText("Lama Peminjaman Buku");
 

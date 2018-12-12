@@ -21,7 +21,7 @@ public class AddNewBook extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         bukuForm = new javax.swing.JTextField();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Tambahkan Buku Baru");
         setBackground(new java.awt.Color(42, 46, 55));
 

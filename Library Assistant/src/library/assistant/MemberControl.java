@@ -32,7 +32,7 @@ public class MemberControl {
             stmt = conn.createStatement();
             String update = "DELETE from member where idmember='"+dataMember.getIdMember()+"' ";
             stmt.executeUpdate(update);
-            MainControl.openDialogueBox("Data member berhasil dihapus", 10, dataMember.getIdMember(), "member");
+            MainControl.openDialogueBox("Data member berhasil dihapus", 10, dataMember.getIdMember(), "close");
         } catch(SQLException e){
             System.err.println(e);
         }    

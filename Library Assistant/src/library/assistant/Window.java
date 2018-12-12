@@ -37,6 +37,12 @@ public class Window {
         editBook.setVisible(true);
     }
 
+    public static void openViewBookWindow(Book book){
+        ViewBook viewBook = new ViewBook();
+        viewBook.setVariable(book);
+        viewBook.setVisible(true);
+    }    
+    
     public static void openEditMemberWindow(Member member){
         EditMember editMember = new EditMember();
         editMember.setVariable(member);
@@ -57,6 +63,10 @@ public class Window {
         editBook.dispose();
     };
 
+    public static void closeViewBookWindow(ViewBook viewBook){
+        viewBook.dispose();
+    };
+    
     public static void closeEditMemberWindow(EditMember editMember){
         editMember.dispose();
     };    

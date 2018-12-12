@@ -22,17 +22,65 @@ public class TransaksiControl {
     public static void addTransaction(int memberID, int bookID){
         Connection conn;
         Statement stmt;
+        boolean bookExists = false; 
         try {
             conn = DriverManager.getConnection(CONN_STRING, USERNAME, PASSWORD);
             stmt = conn.createStatement();
 
-            String insert = "INSERT INTO transaksipeminjaman VALUES(NULL,'"+memberID+"', '"+bookID+"', 0);";
-            stmt.executeUpdate(insert);
-            MainControl.openDialogueBox("Pencatatan transaksi peminjaman berhasil", 10, 1, "transaksi");
+            ResultSet query = stmt.executeQuery("SELECT * FROM book WHERE idbook = '"+bookID+"'");
+            if (!query.isBeforeFirst()) {
+                System.out.println("No book");
+                bookExists= true;
+            }
+            ResultSet query2 = stmt.executeQuery("SELECT * FROM member WHERE idmember = '"+memberID+"'");
+            if (!query2.isBeforeFirst() || bookExists) {
+                System.out.println("No member");
+                MainControl.openDialogueBox("Transaksi peminjaman gagal", 3, 10, "error2");
+            }
+            else{
+                System.out.println("ada");
+                String insert = "INSERT INTO transaksipeminjaman VALUES(NULL,'"+memberID+"', '"+bookID+"', 0);";
+                stmt.executeUpdate(insert);
+                MainControl.openDialogueBox("Pencatatan transaksi peminjaman berhasil", 10, 1, "transaksi");
+            }
+
 
         } catch(SQLException e){
             System.err.println(e);
         }   
     };
-    
+
+    public static void renewTransaction(int bookID){
+        Connection conn;
+        Statement stmt;
+        try {
+            conn = DriverManager.getConnection(CONN_STRING, USERNAME, PASSWORD);
+            stmt = conn.createStatement();
+
+            String update = "UPDATE transaksipeminjaman set status=1 where idbook='"+bookID+"' ";
+            stmt.executeUpdate(update);            
+            
+            MainControl.openDialogueBox("Peminjaman buku berhasil diperpanjang", 10, 1, "transaksi");
+        } catch(SQLException e){
+            System.err.println(e);
+        }   
+    };
+
+
+    public static void submissionTransaction(int bookID){
+        Connection conn;
+        Statement stmt;
+        boolean bookExists = false; 
+        try {
+            conn = DriverManager.getConnection(CONN_STRING, USERNAME, PASSWORD);
+            stmt = conn.createStatement();
+
+            String update = "DELETE from transaksipeminjaman where idbook='"+bookID+"' ";
+            stmt.executeUpdate(update);
+            MainControl.openDialogueBox("Pengembalian buku berhasil", 10, 1, "transaksi");
+
+        } catch(SQLException e){
+            System.err.println(e);
+        }   
+    };    
 }

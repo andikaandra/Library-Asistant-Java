@@ -1,8 +1,6 @@
 package library.assistant;
 
 import java.sql.*;
-import javax.swing.table.DefaultTableModel;
-
 
 public class BookControl {
     private static final String USERNAME="root";
@@ -33,7 +31,7 @@ public class BookControl {
             stmt = conn.createStatement();
             String update = "DELETE from book where idbook='"+dataBuku.getIdBook()+"' ";
             stmt.executeUpdate(update);
-            MainControl.openDialogueBox("Data buku berhasil dihapus", 10, dataBuku.getIdBook(), "buku");
+            MainControl.openDialogueBox("Data buku berhasil dihapus", 10, dataBuku.getIdBook(), "close");
         } catch(SQLException e){
             System.err.println(e);
         }    
@@ -70,7 +68,29 @@ public class BookControl {
         }    
     };
     
-    public static void CheckBook(int idBook){};
+    public static boolean CheckBook(int idBook){
+        Connection conn;
+        Statement stmt;
+        boolean bookExists = false; 
+        try {
+            conn = DriverManager.getConnection(CONN_STRING, USERNAME, PASSWORD);
+            stmt = conn.createStatement();
+
+            ResultSet query = stmt.executeQuery("SELECT * FROM transaksipeminjaman WHERE idbook = '"+idBook+"'");
+            if (!query.isBeforeFirst()) {
+                System.out.println("No book");
+                return false;
+            }
+            else{
+                System.out.println("ada");
+                return true;
+            }
+        } catch(SQLException e){
+            System.err.println(e);
+            return false;
+        }   
+
+    };
 
     public static Book SearchBook(int id){
         Connection conn;

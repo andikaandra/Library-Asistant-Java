@@ -1,14 +1,10 @@
 package library.assistant;
 
-/**
- *
- * @author ASUS
- */
-public class EditBook extends javax.swing.JFrame {
+public class ViewBook extends javax.swing.JFrame {
     private Book book;
     private String type;
     
-    public EditBook() {
+    public ViewBook() {
         initComponents();
     }
 
@@ -21,46 +17,51 @@ public class EditBook extends javax.swing.JFrame {
         penerbitForm.setText(book.getPenerbit());
     }
 
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel5 = new javax.swing.JLabel();
+        judulForm = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
+        bukuForm = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
+        penulisForm = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         penerbitForm = new javax.swing.JTextField();
-        penulisForm = new javax.swing.JTextField();
-        bukuForm = new javax.swing.JTextField();
-        judulForm = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        renew = new javax.swing.JButton();
+        submission = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Edit Book");
-        setBackground(new java.awt.Color(42, 46, 55));
-
-        jLabel1.setText("ID Buku");
-
-        jLabel2.setText("Penulis");
-
-        jLabel3.setText("Penerbit");
-
-        bukuForm.setEnabled(false);
 
         jLabel5.setText("Judul Buku");
 
-        jButton1.setText("Save");
-        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+        judulForm.setEnabled(false);
+
+        jLabel1.setText("ID Buku");
+
+        bukuForm.setEnabled(false);
+
+        jLabel2.setText("Penulis");
+
+        penulisForm.setEnabled(false);
+
+        jLabel3.setText("Penerbit");
+
+        penerbitForm.setEnabled(false);
+
+        renew.setText("Renew");
+        renew.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton1onSaved(evt);
+                renewonSaved(evt);
             }
         });
 
-        jButton2.setText("Cancel");
-        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+        submission.setText("Submission");
+        submission.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton2onClosed(evt);
+                submissiononClosed(evt);
             }
         });
 
@@ -68,24 +69,24 @@ public class EditBook extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(21, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel5)
-                    .addComponent(penulisForm)
-                    .addComponent(judulForm)
-                    .addComponent(penerbitForm, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel1)
-                    .addComponent(bukuForm, javax.swing.GroupLayout.PREFERRED_SIZE, 371, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18))
             .addGroup(layout.createSequentialGroup()
-                .addGap(130, 130, 130)
-                .addComponent(jButton1)
-                .addGap(27, 27, 27)
-                .addComponent(jButton2)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(22, 22, 22)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jLabel5)
+                        .addComponent(penulisForm)
+                        .addComponent(judulForm)
+                        .addComponent(penerbitForm, javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(jLabel2)
+                        .addComponent(jLabel3)
+                        .addComponent(jLabel1)
+                        .addComponent(bukuForm, javax.swing.GroupLayout.PREFERRED_SIZE, 371, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(95, 95, 95)
+                        .addComponent(renew, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(35, 35, 35)
+                        .addComponent(submission)))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -108,41 +109,36 @@ public class EditBook extends javax.swing.JFrame {
                 .addComponent(penerbitForm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(renew, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(submission, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1onSaved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1onSaved
+    private void renewonSaved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_renewonSaved
         int buku = Integer.parseInt(bukuForm.getText());
-        String judul = judulForm.getText();
-        String penulis = penulisForm.getText();
-        String penerbit = penerbitForm.getText();
 
-        Book dataBukuBaru = this.book;
-        dataBukuBaru.setVariable(buku, judul, penulis, penerbit, "ada");
-        this.dispose();
-        MainControl.bookController(dataBukuBaru, 2);
-    }//GEN-LAST:event_jButton1onSaved
+        Book dataBuku = this.book;
+        MainControl.transactionControl(1, dataBuku.getIdBook(), 2);
+        MainControl.closeWindowViewBook(this);
+    }//GEN-LAST:event_renewonSaved
 
-    private void jButton2onClosed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2onClosed
-        MainControl.closeWindowEditBook(this);
-    }//GEN-LAST:event_jButton2onClosed
-
+    private void submissiononClosed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_submissiononClosed
+        Book dataBuku = this.book;
+        MainControl.transactionControl(1, dataBuku.getIdBook(), 3);
+        MainControl.closeWindowViewBook(this);
+    }//GEN-LAST:event_submissiononClosed
 
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(() -> {
-            new EditBook().setVisible(true);
+            new ViewBook().setVisible(true);
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField bukuForm;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -150,5 +146,7 @@ public class EditBook extends javax.swing.JFrame {
     private javax.swing.JTextField judulForm;
     private javax.swing.JTextField penerbitForm;
     private javax.swing.JTextField penulisForm;
+    private javax.swing.JButton renew;
+    private javax.swing.JButton submission;
     // End of variables declaration//GEN-END:variables
 }

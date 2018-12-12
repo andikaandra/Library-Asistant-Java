@@ -19,11 +19,13 @@ public class MemberList extends javax.swing.JFrame {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         membersList = new javax.swing.JTable();
-        jButton2 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Data member");
+        setBackground(new java.awt.Color(42, 46, 55));
 
+        membersList.setBackground(new java.awt.Color(42, 46, 55));
+        membersList.setForeground(new java.awt.Color(255, 255, 255));
         membersList.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -56,7 +58,7 @@ public class MemberList extends javax.swing.JFrame {
         jScrollPane1.setViewportView(membersList);
         if (membersList.getColumnModel().getColumnCount() > 0) {
             membersList.getColumnModel().getColumn(0).setResizable(false);
-            membersList.getColumnModel().getColumn(0).setPreferredWidth(15);
+            membersList.getColumnModel().getColumn(0).setPreferredWidth(6);
             membersList.getColumnModel().getColumn(1).setResizable(false);
             membersList.getColumnModel().getColumn(1).setPreferredWidth(100);
             membersList.getColumnModel().getColumn(2).setResizable(false);
@@ -65,29 +67,15 @@ public class MemberList extends javax.swing.JFrame {
             membersList.getColumnModel().getColumn(4).setResizable(false);
         }
 
-        jButton2.setText("Close");
-        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton2MouseClicked(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 782, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton2)
-                .addGap(360, 360, 360))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton2))
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -101,10 +89,6 @@ public class MemberList extends javax.swing.JFrame {
 
         MainControl.openMenuWindow("member", idmember);
     }//GEN-LAST:event_membersListMouseClicked
-
-    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
-        this.dispose();
-    }//GEN-LAST:event_jButton2MouseClicked
 
     public void displayMemberList(){        
         Connection conn;
@@ -137,7 +121,6 @@ public class MemberList extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable membersList;
     // End of variables declaration//GEN-END:variables

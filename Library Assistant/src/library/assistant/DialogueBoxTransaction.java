@@ -13,14 +13,12 @@ public class DialogueBoxTransaction extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        alertText = new javax.swing.JTextField();
         okButton = new javax.swing.JButton();
         noButton = new javax.swing.JButton();
+        testt = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        alertText.setDragEnabled(true);
-        alertText.setEnabled(false);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setBackground(new java.awt.Color(42, 46, 55));
 
         okButton.setText("Yes");
         okButton.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -36,31 +34,33 @@ public class DialogueBoxTransaction extends javax.swing.JFrame {
             }
         });
 
+        testt.setText("jLabel1");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(142, 142, 142)
+                .addGap(124, 124, 124)
                 .addComponent(okButton, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(42, 42, 42)
+                .addGap(47, 47, 47)
                 .addComponent(noButton, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(115, 115, 115))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(62, Short.MAX_VALUE)
-                .addComponent(alertText, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(60, 60, 60))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(testt)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(35, Short.MAX_VALUE)
-                .addComponent(alertText, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(32, Short.MAX_VALUE)
+                .addComponent(testt)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(okButton)
                     .addComponent(noButton))
-                .addGap(23, 23, 23))
+                .addGap(44, 44, 44))
         );
 
         pack();
@@ -68,6 +68,7 @@ public class DialogueBoxTransaction extends javax.swing.JFrame {
 
     private void okButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_okButtonMouseClicked
         if(this.type.equals("issue")){
+            this.dispose();
             MainControl.transactionControl(this.member, this.book, 1);
         }
     }//GEN-LAST:event_okButtonMouseClicked
@@ -79,7 +80,7 @@ public class DialogueBoxTransaction extends javax.swing.JFrame {
     }//GEN-LAST:event_noButtonMouseClicked
 
     public void displayDialogueBoxTransaction(String pesan, int member1, int book1, String type1){
-        alertText.setText(pesan);
+        testt.setText(pesan);
         member = member1;
         type = type1;
         book = book1;
@@ -98,8 +99,8 @@ public class DialogueBoxTransaction extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField alertText;
     private javax.swing.JButton noButton;
     private javax.swing.JButton okButton;
+    private javax.swing.JLabel testt;
     // End of variables declaration//GEN-END:variables
 }

@@ -36,7 +36,9 @@ public class EditMember extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Edit Member");
+        setBackground(new java.awt.Color(42, 46, 55));
 
         jLabel2.setText("Nama Lengkap");
 
@@ -123,7 +125,7 @@ public class EditMember extends javax.swing.JFrame {
 
         Member dataMember = new Member();
         dataMember.setVariable(member, nama, hp, email);
-
+        this.dispose();
         MainControl.memberController(dataMember, 2);
     }//GEN-LAST:event_jButton1onSaved
 

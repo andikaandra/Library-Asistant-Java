@@ -21,8 +21,9 @@ public class AddNewMember extends javax.swing.JFrame {
         emailForm = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Tambahkan Member baru");
+        setBackground(new java.awt.Color(42, 46, 55));
 
         jButton2.setText("Close");
         jButton2.addMouseListener(new java.awt.event.MouseAdapter() {

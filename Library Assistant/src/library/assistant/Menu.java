@@ -25,7 +25,8 @@ public class Menu extends javax.swing.JFrame {
         edit = new javax.swing.JButton();
         delete = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setBackground(new java.awt.Color(42, 46, 55));
 
         edit.setText("Edit");
         edit.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -68,6 +69,7 @@ public class Menu extends javax.swing.JFrame {
     private void editClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editClicked
         if("book".equals(this.type)){
             Book book =  BookControl.SearchBook(this.id);
+            this.dispose();
             MainControl.openEditBookWindow(book);
         }
         else if("member".equals(this.type)){
@@ -78,10 +80,10 @@ public class Menu extends javax.swing.JFrame {
 
     private void deleteClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deleteClicked
         if("book".equals(this.type)){
-            MainControl.openDialogueBox("Apakah data buku akan dihapus atau tidak?",3, this.id, this.type);
+            MainControl.openDialogueBox("Apakah data buku akan dihapus?",3, this.id, this.type);
         }
         else if("member".equals(this.type)){
-            MainControl.openDialogueBox("Apakah data member akan dihapus atau tidak?",3, this.id, this.type);
+            MainControl.openDialogueBox("Apakah data member akan dihapus?",3, this.id, this.type);
         }
     }//GEN-LAST:event_deleteClicked
 

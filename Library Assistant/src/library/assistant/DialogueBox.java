@@ -13,13 +13,11 @@ public class DialogueBox extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        alertText = new javax.swing.JTextField();
         okButton = new javax.swing.JButton();
+        alertText = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        alertText.setDragEnabled(true);
-        alertText.setEnabled(false);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setBackground(new java.awt.Color(42, 46, 55));
 
         okButton.setText("OK");
         okButton.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -28,27 +26,33 @@ public class DialogueBox extends javax.swing.JFrame {
             }
         });
 
+        alertText.setText("jLabel1");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(206, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(178, 178, 178)
                 .addComponent(okButton)
-                .addGap(194, 194, 194))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(60, 60, 60)
-                .addComponent(alertText, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(175, 175, 175))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(alertText)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(35, Short.MAX_VALUE)
-                .addComponent(alertText, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(79, Short.MAX_VALUE)
                 .addComponent(okButton)
-                .addGap(23, 23, 23))
+                .addGap(29, 29, 29))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(0, 28, Short.MAX_VALUE)
+                    .addComponent(alertText)
+                    .addGap(89, 89, 89)))
         );
 
         pack();
@@ -60,11 +64,13 @@ public class DialogueBox extends javax.swing.JFrame {
                 case "book":
                     Book dataBuku = new Book();
                     dataBuku.setVariable(this.id, "null", "null", "null", "null");
+                    MainControl.closeDialogueBox(this);
                     MainControl.bookController(dataBuku, 3);
                     break;
                 case "member":
                     Member dataMember = new Member();
                     dataMember.setVariable(this.id, "null", "null", "null");
+                    MainControl.closeDialogueBox(this);
                     MainControl.memberController(dataMember, 3);
                     break;
                 case "error":
@@ -74,6 +80,7 @@ public class DialogueBox extends javax.swing.JFrame {
                     MainControl.closeError2DialogueBox(this);
                     break;
                 default:
+                    MainControl.closeDialogueBox(this);
                     break;
             }
         }
@@ -110,7 +117,7 @@ public class DialogueBox extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField alertText;
+    private javax.swing.JLabel alertText;
     private javax.swing.JButton okButton;
     // End of variables declaration//GEN-END:variables
 }
