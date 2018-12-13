@@ -31,6 +31,10 @@ public class BookControl {
             stmt = conn.createStatement();
             String update = "DELETE from book where idbook='"+dataBuku.getIdBook()+"' ";
             stmt.executeUpdate(update);
+            
+            String updates = "DELETE from transaksipeminjaman where idbook='"+dataBuku.getIdBook()+"' ";
+            stmt.executeUpdate(updates);
+            
             MainControl.openDialogueBox("Data buku berhasil dihapus", 10, dataBuku.getIdBook(), "close");
         } catch(SQLException e){
             System.err.println(e);

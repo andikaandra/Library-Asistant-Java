@@ -23,24 +23,30 @@ public class TransaksiControl {
         Connection conn;
         Statement stmt;
         boolean bookExists = false; 
+        boolean bookBorrowed = false;
         try {
             conn = DriverManager.getConnection(CONN_STRING, USERNAME, PASSWORD);
             stmt = conn.createStatement();
 
             ResultSet query = stmt.executeQuery("SELECT * FROM book WHERE idbook = '"+bookID+"'");
             if (!query.isBeforeFirst()) {
-                System.out.println("No book");
                 bookExists= true;
             }
+            ResultSet querys = stmt.executeQuery("SELECT * FROM transaksipeminjaman WHERE idbook = '"+bookID+"'");
+            if (querys.isBeforeFirst()) {
+                bookBorrowed= true;
+            }
             ResultSet query2 = stmt.executeQuery("SELECT * FROM member WHERE idmember = '"+memberID+"'");
-            if (!query2.isBeforeFirst() || bookExists) {
-                System.out.println("No member");
+            if (!query2.isBeforeFirst() || bookExists || bookBorrowed) {
                 MainControl.openDialogueBox("Transaksi peminjaman gagal", 3, 10, "error2");
             }
             else{
                 System.out.println("ada");
                 String insert = "INSERT INTO transaksipeminjaman VALUES(NULL,'"+memberID+"', '"+bookID+"', 0);";
                 stmt.executeUpdate(insert);
+
+                String update = "UPDATE book set ketersediaan='dipinjam' where idbook='"+bookID+"' ";
+                stmt.executeUpdate(update);
                 MainControl.openDialogueBox("Pencatatan transaksi peminjaman berhasil", 10, 1, "transaksi");
             }
 
@@ -77,6 +83,9 @@ public class TransaksiControl {
 
             String update = "DELETE from transaksipeminjaman where idbook='"+bookID+"' ";
             stmt.executeUpdate(update);
+
+            String updatez = "UPDATE book set ketersediaan='ada' where idbook='"+bookID+"' ";
+            stmt.executeUpdate(updatez);
             MainControl.openDialogueBox("Pengembalian buku berhasil", 10, 1, "transaksi");
 
         } catch(SQLException e){
